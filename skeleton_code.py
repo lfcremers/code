@@ -10,11 +10,11 @@ def p1(k: int) -> str:
     out=""
     for i in reversed(range(1,k+1)):
         out = out + str(factorial(i)) + ","
-    return out
+    return out[0:-1]
 
 
 def p2_a(x: list, y: list) -> list:
-    y=sorted(y)
+    y=list(reversed(sorted(y)))
     del y[-1]
     return y
 
@@ -42,7 +42,7 @@ def p3_a(x: set, y: set, z: set) -> set:
 
 def p3_b(x: set, y: set, z: set) -> set:
     intersect = [i for i in y if i in x]
-    intersect += [i for i in z if i in intersect]
+    intersect = [i for i in z if i in intersect]
     return set(intersect)
 
 
@@ -51,10 +51,6 @@ def p3_c(x: set, y: set, z: set) -> set:
     single += [i for i in z if i not in x and i not in y]
     single += [i for i in x if i not in z and i not in y]
     return (set(single))
-        
-        
-
-
 
 def p4_a() -> np.array:
     array=[[1,1,1,1,1],[1,0,0,0,1],[1,0,2,0,1],[1,0,0,0,1],[1,1,1,1,1]]
